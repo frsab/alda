@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @Table(name="users")
 @NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -178,5 +179,17 @@ public class User implements Serializable {
 
 		return criterederecherch;
 	}
+	public void show(){
+		System.out.println( this.toString());
+		System.out.print(
+				"\n"+this.idUser+
+				 "\n"+this.adresseUser+
+				"\n"+this.codePostalUser+
+				 "\n"+this.email+
+				 "\n"+this.nom+
+				 "\n"+this.password+
+				 "\n"+this.telephoneNb+
+				 "\n"+this.typeUser);
 
+	}
 }

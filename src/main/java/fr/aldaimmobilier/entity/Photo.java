@@ -17,6 +17,7 @@ public class Photo implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_photo")
 	private int idPhoto;
+	@Column(length = 254)
 
 	private String url;
 

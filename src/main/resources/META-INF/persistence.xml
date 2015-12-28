@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
 	              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-	<persistence-unit name="aldaImmobilierPersistenceUnit">
+	<persistence-unit name="aldaImmobilierPU">
 		<jta-data-source>aldaimmobilierJTADataSource</jta-data-source>
 		<class>fr.aldaimmobilier.entity.Annonce</class>
 		<class>fr.aldaimmobilier.entity.Annoncefavori</class>

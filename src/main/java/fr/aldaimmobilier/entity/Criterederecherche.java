@@ -25,6 +25,7 @@ public class Criterederecherche implements Serializable {
 	private int prixMax;
 
 	private int surfaceBienCherche;
+	@Column(length = 254)
 
 	private String typeBienCherche;
 

@@ -19,7 +19,7 @@ public class Annonce implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_annonce")
 	private int idAnnonce;
-
+	@Column(length = 254)
 	private String adresse;
 
 	private int codePostal;
@@ -28,11 +28,13 @@ public class Annonce implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateDeMiseEnLigne;
+	@Column(length = 254)
 
 	private String description;
 
 	private int prix;
 
+	@Column(length = 254)
 	private String type;
 
 	//bi-directional many-to-one association to User
