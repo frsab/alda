@@ -1,4 +1,4 @@
-package fr.aldaimmobilier.entity;
+package fr.aldaimmobilier.EntityTable;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -14,10 +14,9 @@ public class Photo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="id_photo")
 	private int idPhoto;
-	@Column(length = 254)
 
 	private String url;
 

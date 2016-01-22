@@ -1,4 +1,4 @@
-package fr.aldaimmobilier.entity;
+package fr.aldaimmobilier.EntityTable;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -14,7 +14,7 @@ public class Criterederecherche implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="id_annonce")
 	private int idAnnonce;
 
@@ -25,7 +25,6 @@ public class Criterederecherche implements Serializable {
 	private int prixMax;
 
 	private int surfaceBienCherche;
-	@Column(length = 254)
 
 	private String typeBienCherche;
 

@@ -8,11 +8,11 @@
 	<persistence-unit name="aldaImmobilierPU" transaction-type="RESOURCE_LOCAL">
 		<jta-data-source>aldaimmobilierJTADataSource</jta-data-source>
 		<non-jta-data-source> </non-jta-data-source>
-		<class>fr.aldaimmobilier.entity.Annonce</class>
-		<class>fr.aldaimmobilier.entity.Annoncefavori</class>
-		<class>fr.aldaimmobilier.entity.Criterederecherche</class>
-		<class>fr.aldaimmobilier.entity.Photo</class>
-		<class>fr.aldaimmobilier.entity.User</class>
+		<class>fr.aldaimmobilier.EntityTable.Annonce</class>
+		<class>fr.aldaimmobilier.EntityTable.Annoncefavori</class>
+		<class>fr.aldaimmobilier.EntityTable.Criterederecherche</class>
+		<class>fr.aldaimmobilier.EntityTable.Photo</class>
+		<class>fr.aldaimmobilier.EntityTable.User</class>
 		
 		
 		<properties>

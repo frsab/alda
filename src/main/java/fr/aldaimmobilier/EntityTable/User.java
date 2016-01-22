@@ -1,4 +1,4 @@
-package fr.aldaimmobilier.entity;
+package fr.aldaimmobilier.EntityTable;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -12,12 +12,11 @@ import java.util.List;
 @Entity
 @Table(name="users")
 @NamedQuery(name="User.findAll", query="SELECT u FROM User u")
-
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="id_user")
 	private int idUser;
 
@@ -179,17 +178,5 @@ public class User implements Serializable {
 
 		return criterederecherch;
 	}
-	public void show(){
-		System.out.println( this.toString());
-		System.out.print(
-				"\n"+this.idUser+
-				 "\n"+this.adresseUser+
-				"\n"+this.codePostalUser+
-				 "\n"+this.email+
-				 "\n"+this.nom+
-				 "\n"+this.password+
-				 "\n"+this.telephoneNb+
-				 "\n"+this.typeUser);
 
-	}
 }

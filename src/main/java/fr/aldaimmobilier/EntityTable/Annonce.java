@@ -1,4 +1,4 @@
-package fr.aldaimmobilier.entity;
+package fr.aldaimmobilier.EntityTable;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -16,10 +16,10 @@ public class Annonce implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="id_annonce")
 	private int idAnnonce;
-	@Column(length = 254)
+
 	private String adresse;
 
 	private int codePostal;
@@ -28,13 +28,11 @@ public class Annonce implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateDeMiseEnLigne;
-	@Column(length = 254)
 
 	private String description;
 
 	private int prix;
 
-	@Column(length = 254)
 	private String type;
 
 	//bi-directional many-to-one association to User
