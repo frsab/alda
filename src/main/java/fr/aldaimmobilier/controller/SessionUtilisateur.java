@@ -14,7 +14,7 @@ import fr.aldaimmobilier.EntityTable.User;
 import fr.aldaimmobilier.ejb.SessionEJB;
 
 /**
- * Session Bean implementation class SessionUtilisateur
+ * Session Bean implementation class SessionUtilisateur s
  */
 @Named(value="session")
 @RequestScoped
