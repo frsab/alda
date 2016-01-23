@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://openfaces.org/"
 	>
 	
 
@@ -13,27 +14,22 @@
 <h:body>
 	<h1> Bienvenue das notre site des commerce d'immobiliers </h1>
 	<h3>Connexion : </h3>
-	<h:form>
-			<h:panelGrid columns="2" >
-				 <h:outputLabel value="id user  : "/>
-					<h:inputText value="#{userController.user.idUser}"/>
-				 <h:outputLabel value="mail user  : "/>
-					<h:inputText value="#{userController.user.email}" />
-				<h:outputLabel value="pasword user  : "/>
-					<h:inputSecret id="id3" value="#{userController.user.password}" />
-				 <h:outputLabel value="N° téléphone user  : "/>
-					<h:inputText  value="#{userController.user.telephoneNb}"/>
-				 <h:outputLabel value="Type user  : "/>
-					<h:inputText value="#{userController.user.typeUser}"/>
-				 <h:outputLabel value="adresse user  : "/>
-					<h:inputText value="#{userController.user.adresseUser}"/>
-				 <h:outputLabel value="codepostal user  : "/>
-					<h:inputText value="#{userController.user.codePostalUser}"/>
-			</h:panelGrid>
 
-			<h:commandButton value="Add New User"  action="#{userController.addNewUser}"/>            
-	</h:form>
-	
+<o:tabSet>
+  <o:tabSetItem>
+    <h:outputText value="Client" />
+  </o:tabSetItem>
+  <o:tabSetItem>
+    <h:outputText value="Server" />
+  </o:tabSetItem>
+  <o:tabSetItem>
+    <h:outputText value="Custom" />
+  </o:tabSetItem>
+  <o:tabSetItem>
+    <h:outputText value="Default" />
+  </o:tabSetItem>
+</o:tabSet>
+
 </h:body>
 </html>
 
