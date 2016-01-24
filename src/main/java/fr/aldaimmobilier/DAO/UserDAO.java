@@ -7,7 +7,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.log4j.Category;
 import org.apache.log4j.Logger;
 import fr.aldaimmobilier.EntityTable.User;
 @Stateless

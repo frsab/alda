@@ -16,6 +16,14 @@ import java.util.List;
 	@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 })
 public class User implements Serializable {
+	@Override
+	public String toString() {
+		return "User [idUser=" + idUser + ", adresseUser=" + adresseUser + ", codePostalUser=" + codePostalUser
+				+ ", email=" + email + ", nom=" + nom + ", password=" + password + ", telephoneNb=" + telephoneNb
+				+ ", typeUser=" + typeUser + ", annonces=" + annonces + ", annoncefavoris=" + annoncefavoris
+				+ ", criterederecherches=" + criterederecherches + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 
 
