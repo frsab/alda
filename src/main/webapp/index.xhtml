@@ -1,125 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:o="http://openfaces.org/"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">	
-	
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
+     
+    
+     
+    <h:head>
+    	<title>Immobilier - JSF 2.0</title>
+    </h:head>
+     
+    <h:body>
+        <h1> Bienvenue dans notre site des commerce d'immobiliers </h1>
+        <h:form class="rfrm" id="rfrm">
+		  <p:panel id="rpanel" header="Inscription !!!">
+		    <p:messages redisplay="false" id="messages" showDetail="true" autoUpdate="true" />
+		    <h:panelGrid id="grid" columns="2" cellpadding="5">
+		      <h:outputText value="Email:* " />
+		      <p:inputText styleClass="email" value="#{userCtrl.user.email}" required="true" requiredMessage="Email is required">
+		      </p:inputText>
 
-<h:head>
-	<title>Immobilier - JSF 2.0</title>
-</h:head>
-<h:body>
-	<h1> Bienvenue dans notre site des commerce d'immobiliers </h1>
-	<h:form>
-	<!--
-		 <h:panelGrid columns="2" cellpadding="5">
-		    <h:outputText value="Basic: " />
-		    <p:password id="nonFeedback" value="#{passwordView.password1}" />
-		     <h:outputText value="Feedback: " />
-		    <p:password id="feedback" value="#{passwordView.password2}" feedback="true" />
-		     <h:outputText value="Feedback (Turkish): " />
-		    <p:password id="turkishFeedback" value="#{passwordView.password3}" feedback="true"
-		                promptLabel="Lütfen şifre giriniz" weakLabel="Zayıf"
-		                goodLabel="Orta seviye" strongLabel="Güçlü" />
-		     <h:outputText value="Inline Feedback: " />
-		    <p:password id="inlineFeedback" value="#{passwordView.password4}" feedback="true" inline="true" />
-		</h:panelGrid>
-   -->
-	
-		<p:spacer height="10" />
-	    <p:separator />
-	<h3>Inscription : </h3>
-	    <p:messages id="messages" showDetail="true" autoUpdate="true" />
-	    <h:panelGrid columns="2" id="loginPanel" cellpadding="5">                   
-		    <h:outputLabel for="login" value="Email :" />
-			<p:inputText value="#{userCtrl.user.nom}" required="true"></p:inputText>
-
-
-	        <h:outputLabel for="pwd1" value="Password 1: *" />
-	        <p:password id="pwd1" value="#{userCtrl.user.password}" match="pwd2" label="Password 1" required="true" />
-
-	        <h:outputLabel for="pwd2" value="Password 2: *" />
-	        <p:password id="pwd2" value="#{userCtrl.user.password}" label="Password 2" required="true" />
-	    </h:panelGrid>
-	     <!--  actionListener="#{resetInputView.reset}"-->
-		<p:commandButton value="Initiliser le formulaire" immediate="true" ajax="false" style="margin-right:20px;">
-		    <p:resetInput target="loginPanel" />
-		</p:commandButton>
-	    
-	      <p:commandButton update="loginPanel" value="Save" />
-<!--    <p:commandButton update="matchGrid" value="Save" />
-		<p:outputLabel> login</p:outputLabel>
-		<p:inputText value="#{userCtrl.user.nom}"></p:inputText>
-		<p:outputLabel> password</p:outputLabel>
-		<p:inputText></p:inputText>
-		<p:inputText value="#{userCtrl.user.password}"></p:inputText>
-	 --> 
-	 	
-	
-	</h:form>
-	<h:form>
-		<p:spacer height="10" />
-	    <p:separator />
-		<h3>Connexion : </h3>
-	    <h:panelGrid columns="2" id="connexionPanel" cellpadding="5">                   
-		    <h:outputLabel value="Email :" />
-			<p:inputText value="#{userCtrl.user.nom}"></p:inputText>
-	        <h:outputLabel for="pwd1" value="Mot de passe : *" />
-	        <p:password id="pwd1" value="#{userCtrl.user.password}"  label="Mot de passe :" required="true" />
-	    </h:panelGrid>
-	     <!--  actionListener="#{resetInputView.reset}"-->
-		<p:commandButton value="Initiliser le formulaire" immediate="true" ajax="false" style="margin-right:20px;">
-		    <p:resetInput target="loginPanel" />
-		</p:commandButton>
-		<p:commandButton update="loginPanel" value="Save" />
-	</h:form>
-<!--<h1>Hello World PrimeFaces</h1>
-
-	<h:form>
-		<p:inputText value="#{userCtrl.nomLocal}"></p:inputText>
-		<p:inputText value="#{user.user.nom}"></p:inputText>
-		<p:editor value="#{user.nom}" />
-	</h:form>
-	
-	
-	<p:button value="Bookmark" icon="ui-icon-star">
-    <f:param name="productId" value="10" />
-</p:button>
-
-<p:button value="With Icon" icon="ui-icon-star">
-    <f:param name="productId" value="20" />
-</p:button>
- 
-<p:button  icon="ui-icon-star" title="Icon Only">
-    <f:param name="productId" value="30" />
-</p:button>
- 
-<p:button value="Bookmark" icon="ui-icon-star" disabled="true">
-    <f:param name="productId" value="40" />
-</p:button>  -->
-	
-
-
-</h:body>
+		      <h:outputText value="Password:* " />
+		      <p:password styleClass="pwd1" id="pwd1" value="#{userCtrl.user.password}" match="pwd2" label="Password 1" required="true" requiredMessage="Password is required" />
+		
+		      <h:outputText value="Password:* " />
+		      <p:password styleClass="pwd2" id="pwd2" value="#{userCtrl.user.password}" label="Password" required="true" requiredMessage="Password is required" />
+		
+		
+		
+		    </h:panelGrid>
+		    <p:commandButton type="button" value="Déja Inscrit?" onclick="goLogin();" />
+		    <p:commandButton value="Sign Up" update="rpanel" validateClient="true" actionListener="#{userCtrl.saveUser}" />
+		  </p:panel>
+		
+		
+		
+		</h:form>
+    </h:body>
 </html>
-		 	<!-- 
-		 <div>
-		 	<div>
-				<h:outputText value="login:"/>
-	           <h:inputText value="#{loginBean.username}" id="username"/>
-		 	</div>
-		 	
-		 	<div>
-	           <h:outputText value="mot de passe :"/>
-	           <h:inputSecret value="#{loginBean.password}" id="password"/>
-		 	</div>
-		 	<div>
-		 	
-	           <h:commandButton id="register" value="register" action="view/admin/messageCenter"></h:commandButton>
-			</div>
-		 </div>
-		 	 -->

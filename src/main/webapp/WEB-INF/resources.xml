@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <Resource id="jdbc/alda" type="javax.sql.DataSource">
+  <Resource id="aldaimmobilierJTADataSource" type="javax.sql.DataSource">
     JdbcDriver = com.mysql.jdbc.Driver
-    JdbcUrl = jdbc:mysql://localhost:3306/alda
+    JdbcUrl = jdbc:mysql://localhost:3306/immobilierdatabase
     UserName = root
     Password = 
     JtaManaged = true

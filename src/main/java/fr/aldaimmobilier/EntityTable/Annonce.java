@@ -18,20 +18,20 @@ public class Annonce implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="id_annonce")
-	private int idAnnonce;
+	private Long idAnnonce;
 
 	private String adresse;
 
-	private int codePostal;
+	private Long codePostal;
 
-	private int codeRegion;
+	private Long codeRegion;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateDeMiseEnLigne;
 
 	private String description;
 
-	private int prix;
+	private Long prix;
 
 	private String type;
 
@@ -51,11 +51,11 @@ public class Annonce implements Serializable {
 	public Annonce() {
 	}
 
-	public int getIdAnnonce() {
+	public Long getIdAnnonce() {
 		return this.idAnnonce;
 	}
 
-	public void setIdAnnonce(int idAnnonce) {
+	public void setIdAnnonce(Long idAnnonce) {
 		this.idAnnonce = idAnnonce;
 	}
 
@@ -67,19 +67,19 @@ public class Annonce implements Serializable {
 		this.adresse = adresse;
 	}
 
-	public int getCodePostal() {
+	public Long getCodePostal() {
 		return this.codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(Long codePostal) {
 		this.codePostal = codePostal;
 	}
 
-	public int getCodeRegion() {
+	public Long getCodeRegion() {
 		return this.codeRegion;
 	}
 
-	public void setCodeRegion(int codeRegion) {
+	public void setCodeRegion(Long codeRegion) {
 		this.codeRegion = codeRegion;
 	}
 
@@ -99,11 +99,11 @@ public class Annonce implements Serializable {
 		this.description = description;
 	}
 
-	public int getPrix() {
+	public Long getPrix() {
 		return this.prix;
 	}
 
-	public void setPrix(int prix) {
+	public void setPrix(Long prix) {
 		this.prix = prix;
 	}
 

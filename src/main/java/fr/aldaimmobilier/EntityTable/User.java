@@ -30,11 +30,11 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="id_user")
-	private int idUser;
+	private Long idUser;
 
 	private String adresseUser;
 
-	private int codePostalUser;
+	private Long codePostalUser;
 
 	private String email;
 
@@ -61,11 +61,11 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public int getIdUser() {
+	public Long getIdUser() {
 		return this.idUser;
 	}
 
-	public void setIdUser(int idUser) {
+	public void setIdUser(Long idUser) {
 		this.idUser = idUser;
 	}
 
@@ -77,11 +77,11 @@ public class User implements Serializable {
 		this.adresseUser = adresseUser;
 	}
 
-	public int getCodePostalUser() {
+	public Long getCodePostalUser() {
 		return this.codePostalUser;
 	}
 
-	public void setCodePostalUser(int codePostalUser) {
+	public void setCodePostalUser(Long codePostalUser) {
 		this.codePostalUser = codePostalUser;
 	}
 

@@ -16,15 +16,15 @@ public class Criterederecherche implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="id_annonce")
-	private int idAnnonce;
+	private Long idAnnonce;
 
-	private int codePostalBienCherche;
+	private Long codePostalBienCherche;
 
-	private int priMin;
+	private Long priMin;
 
-	private int prixMax;
+	private Long prixMax;
 
-	private int surfaceBienCherche;
+	private Long surfaceBienCherche;
 
 	private String typeBienCherche;
 
@@ -36,43 +36,43 @@ public class Criterederecherche implements Serializable {
 	public Criterederecherche() {
 	}
 
-	public int getIdAnnonce() {
+	public Long getIdAnnonce() {
 		return this.idAnnonce;
 	}
 
-	public void setIdAnnonce(int idAnnonce) {
+	public void setIdAnnonce(Long idAnnonce) {
 		this.idAnnonce = idAnnonce;
 	}
 
-	public int getCodePostalBienCherche() {
+	public Long getCodePostalBienCherche() {
 		return this.codePostalBienCherche;
 	}
 
-	public void setCodePostalBienCherche(int codePostalBienCherche) {
+	public void setCodePostalBienCherche(Long codePostalBienCherche) {
 		this.codePostalBienCherche = codePostalBienCherche;
 	}
 
-	public int getPriMin() {
+	public Long getPriMin() {
 		return this.priMin;
 	}
 
-	public void setPriMin(int priMin) {
+	public void setPriMin(Long priMin) {
 		this.priMin = priMin;
 	}
 
-	public int getPrixMax() {
+	public Long getPrixMax() {
 		return this.prixMax;
 	}
 
-	public void setPrixMax(int prixMax) {
+	public void setPrixMax(Long prixMax) {
 		this.prixMax = prixMax;
 	}
 
-	public int getSurfaceBienCherche() {
+	public Long getSurfaceBienCherche() {
 		return this.surfaceBienCherche;
 	}
 
-	public void setSurfaceBienCherche(int surfaceBienCherche) {
+	public void setSurfaceBienCherche(Long surfaceBienCherche) {
 		this.surfaceBienCherche = surfaceBienCherche;
 	}
 

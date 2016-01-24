@@ -16,7 +16,7 @@ public class Photo implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="id_photo")
-	private int idPhoto;
+	private Long idPhoto;
 
 	private String url;
 
@@ -28,11 +28,11 @@ public class Photo implements Serializable {
 	public Photo() {
 	}
 
-	public int getIdPhoto() {
+	public Long getIdPhoto() {
 		return this.idPhoto;
 	}
 
-	public void setIdPhoto(int idPhoto) {
+	public void setIdPhoto(Long idPhoto) {
 		this.idPhoto = idPhoto;
 	}
 

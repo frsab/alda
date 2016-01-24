@@ -13,11 +13,17 @@
 		<class>fr.aldaimmobilier.EntityTable.Criterederecherche</class>
 		<class>fr.aldaimmobilier.EntityTable.Photo</class>
 		<class>fr.aldaimmobilier.EntityTable.User</class>
+		
+		
 		<properties>
 			<property name="openjpa.jdbc.DBDictionary" value="mysql" />
 			<!-- Cette propriété active la log des requêtes SQL réalisées par OpenJPA -->
 			<property name="openjpa.Log" value="SQL=Trace" />
+			
+
 			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
+
+
 		</properties>
 	</persistence-unit>
 </persistence>

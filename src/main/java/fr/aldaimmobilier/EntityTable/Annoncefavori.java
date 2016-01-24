@@ -16,7 +16,7 @@ public class Annoncefavori implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="id_favoris")
-	private int idFavoris;
+	private Long idFavoris;
 
 	//bi-directional many-to-one association to Annonce
 	@ManyToOne
@@ -31,11 +31,11 @@ public class Annoncefavori implements Serializable {
 	public Annoncefavori() {
 	}
 
-	public int getIdFavoris() {
+	public Long getIdFavoris() {
 		return this.idFavoris;
 	}
 
-	public void setIdFavoris(int idFavoris) {
+	public void setIdFavoris(Long idFavoris) {
 		this.idFavoris = idFavoris;
 	}
 
