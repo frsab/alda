@@ -4,8 +4,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
 	              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-
-	<persistence-unit name="aldaImmobilierPU" transaction-type="RESOURCE_LOCAL">
+<!--<persistence-unit name="aldaImmobilierPU" transaction-type="RESOURCE_LOCAL">  -->
+	<persistence-unit name="aldaImmobilierPU" transaction-type="JTA">
 		<jta-data-source>aldaimmobilierJTADataSource</jta-data-source>
 		<non-jta-data-source> </non-jta-data-source>
 		<class>fr.aldaimmobilier.EntityTable.Annonce</class>
@@ -21,3 +21,13 @@
 		</properties>
 	</persistence-unit>
 </persistence>
+<!--<persistence version="1.0" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+<persistence-unit name="puBdProject" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+   
+    </persistence-unit>
+</persistence>
+  -->
+

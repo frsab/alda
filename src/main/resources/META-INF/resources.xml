@@ -5,6 +5,6 @@
     JdbcUrl = jdbc:mysql://localhost:3306/immobilierdatabase
     UserName = root
     Password = 
-    JtaManaged = true
+    <!-- JtaManaged = true -->
   </Resource>
-</resources>
+  </resources>
