@@ -13,9 +13,79 @@
      
     <h:body>
         <h1> Liste des utilisateur  </h1>
-         <h:form class="retour" id="retour">
+<h:form>
+    <p:dataTable id="tbl" 
+    var="currentUser" 
+    value="#{userCtrl.users}"
+    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+    paginator="true" 
+    rows="10" 
+    style="margin-bottom:20px">    
+        <f:facet name="{Exporters}">
+            <h:commandLink>
+                <p:graphicImage name="/demo/images/excel.png" width="24"/>
+                <p:dataExporter type="xls" target="tbl" fileName="users" />
+            </h:commandLink>
+ 
+            <h:commandLink>
+                <p:graphicImage name="/demo/images/pdf.png" width="24"/>
+                <p:dataExporter type="pdf" target="tbl" fileName="users"/>
+            </h:commandLink>
+ 
+            <h:commandLink>
+                <p:graphicImage name="/demo/images/csv.png" width="24"/>
+                <p:dataExporter type="csv" target="tbl" fileName="users" />
+            </h:commandLink>
+ 
+            <h:commandLink>
+                <p:graphicImage name="/demo/images/xml.png" width="24"/>
+                <p:dataExporter type="xml" target="tbl" fileName="users" />
+            </h:commandLink>
+        </f:facet>
+ 
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Email"/>
+            </f:facet>
+            <h:outputText value="#{currentUser.email}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="MOT DE PASSE" />
+            </f:facet>
+            <h:outputText value="#{currentUser.password}" />
+        </p:column>
+    </p:dataTable>
+ 
+ 
+    <h3>Exporter uniquement les données</h3>
+    <h:commandLink>
+        <p:graphicImage name="/demo/images/excel.png" />
+        <p:dataExporter type="xls" target="tbl" fileName="users" pageOnly="true"/>
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/demo/images/pdf.png" />
+        <p:dataExporter type="pdf" target="tbl" fileName="users" pageOnly="true" />
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/demo/images/csv.png" />
+        <p:dataExporter type="csv" target="tbl" fileName="users" pageOnly="true" />
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/demo/images/xml.png" />
+        <p:dataExporter type="xml" target="tbl" fileName="users" pageOnly="true" />
+    </h:commandLink>
+</h:form>
+
+
+<!--          <h:form class="retour" id="retour">
 		    <p:commandButton type="button" value="retourner à la page d'acceuil" onclick="/../index.xhtml" />
 		 </h:form>
- 
+ -->
     </h:body>
 </html>
