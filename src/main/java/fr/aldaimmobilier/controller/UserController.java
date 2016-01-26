@@ -39,15 +39,19 @@ public class UserController {
 			userDAO.insertUser(user);
 		} catch (Exception e) {
 			e.printStackTrace();
-			returnValue = "xhtmlPages/error_page";
+			returnValue = "error_page";
 			System.out.println("retour vers la page " + returnValue);
 			return returnValue;
 		}
 		System.out.println("retour vers la page " + returnValue);
 		return returnValue;
 	}
-
-	public String getUsers() {
+    public String goToLoginPage() {
+		String returnValue = "login";
+		System.out.println("goToLoginPage function !!");
+		return returnValue;
+	}
+	public List<User> getUsers() {
 		String returnValue = "users";
 		System.out.println("ja suis au niveau de la fonction getUsers");
 		try {
@@ -65,7 +69,8 @@ public class UserController {
 			returnValue = "error_saving";
 		}
 		for(User u : users)System.out.println(u.toString());
-		return returnValue;
+		for(User u : users)System.out.println(u.getEmail());
+		return users;
 	}
 
 	public String getAllProjects() {
