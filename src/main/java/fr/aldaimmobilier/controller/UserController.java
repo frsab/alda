@@ -23,13 +23,13 @@ public class UserController {
 	private List<User> users;
 
 	public UserController() {
-		System.out.println("In ProjectController");
+		System.out.println("In UserController");
 	}
 
 	@PostConstruct
 	public void postConstruct() {
 		user = new User();
-		System.out.println("In ProjectController postConstruct" + user.toString());
+		System.out.println("In UserController postConstruct" + user.toString());
 	}
 
 	public String saveUser() {
@@ -58,7 +58,7 @@ public class UserController {
 			users = userDAO.getAllUsers();// getAllUsers();
 			if (users != null) {
 				System.out.println("Nombre des utilisateurs inscrits=" + users.size());
-				// logger.info("Taille de projects=" + users.size());
+				// logger.info("Taille de users=" + users.size());
 			} 
 			else {
 				System.out.println("Nombre des utilisateurs inscrits=0");
@@ -71,23 +71,6 @@ public class UserController {
 		for(User u : users)System.out.println(u.toString());
 		for(User u : users)System.out.println(u.getEmail());
 		return users;
-	}
-
-	public String getAllProjects() {
-		String returnValue = "users";
-		try {
-			users = userDAO.getAllUsers();// getAllUsers();
-			if (users != null) {
-				System.out.println("Taille de projects=" + users.size());
-			} 
-			else {
-				System.out.println("Taille de projects=0");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			returnValue = "error_saving";
-		}
-		return returnValue;
 	}
 
 	public void setUsers(List<User> users) {

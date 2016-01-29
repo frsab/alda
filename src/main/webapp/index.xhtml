@@ -12,11 +12,12 @@
     </h:head>
      
     <h:body>
-        <h1> Bienvenue dans notre site des commerce d'immobiliers </h1>
+    <!--    <h1> Bienvenue dans notre site des commerce d'immobiliers </h1> -->
+     
         <h:form class="rfrm" id="rfrm">
-		  <p:panel id="rpanel" header="Inscription !!!">
+		  <p:panel id="rpanel" header="Inscription, connexion : !!!">
 		    <p:messages redisplay="false" id="messages" showDetail="true" autoUpdate="true" />
-		    <h:panelGrid id="grid" columns="2" cellpadding="5">
+		    <h:panelGrid id="grid" columns="6" cellpadding="5">
 		      <h:outputText value="Email:* " />
 		      <p:inputText styleClass="email" value="#{userCtrl.user.email}" required="true" requiredMessage="Email is required">
 		      </p:inputText>
@@ -29,9 +30,9 @@
           		<p:commandButton value="Vider formulaire" update="rpanel" process="@this"  style="margin-right:20px;" />
 		  </p:panel>
 		</h:form>
-		  <h:form>            
+		<h:form>            
 		    <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
-		        <p:graphicImage name="/demo/images/login.png" />
+		        <p:graphicImage value="org.primefaces.model.DefaultStreamedContent@b8fda1" />
 		    </h:outputLink>
 		 
 		    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
@@ -52,20 +53,7 @@
 		    </p:dialog>
 		</h:form>
 		
-		<h:form enctype="multipart/form-data">
-    <p:growl id="messages" showDetail="true" />
- 
-    <p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
- 
-    <p:commandButton value="Submit" ajax="false" actionListener="#{fileUploadView.upload}" disabled="true" />
-</h:form>
-     <h:form id="form" >
- 
-        <p:fileUpload fileUploadListener="#{fileUploadController.upload}"
-allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000" description="Select Images"/>
- 
-    </h:form> 
-<script type="text/javascript">
+		<script type="text/javascript">
     function handleLoginRequest(xhr, status, args) {
         if(args.validationFailed || !args.loggedIn) {
             PF('dlg').jq.effect("shake", {times:5}, 100);
@@ -76,6 +64,6 @@ allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000" description="Select Im
         }
     }
 </script>
-		
     </h:body>
+    
 </html>

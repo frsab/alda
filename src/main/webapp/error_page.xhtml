@@ -13,8 +13,11 @@
      
     <h:body>
         <h1> ERROR PAGE ! </h1>
+        <h2>l'email est existe déje, contactez l'administrateur.</h2>
         <h:form class="error" id="error">
-		    <p:commandButton type="button" value="retourner à la page d'acceuil" action="index.xhtml" />
+        <h:link outcome="index.xhtml" value="retourner à la page d'accueil"/>
+        <!--  	    <p:commandButton type="button" value="retourner à la page d'acceuil" action="index.xhtml" />
+	-->
 		 </h:form>
     </h:body>
 </html>

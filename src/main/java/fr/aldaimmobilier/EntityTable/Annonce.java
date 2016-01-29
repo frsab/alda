@@ -11,7 +11,10 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Annonce.findAll", query="SELECT a FROM Annonce a")
+@NamedQueries({
+	@NamedQuery(name="Annonce.findAll", query="SELECT a FROM Annonce a"),
+	@NamedQuery(name="Annonce.findByDate",query="SELECT a FROM Annonce a WHERE a.idAnnonce =:Id")
+})
 public class Annonce implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -8,80 +8,46 @@
     
      
     <h:head>
-        <title>Immobilier - JSF 2.0</title>
+    	<title>Immobilier - JSF 2.0</title>
     </h:head>
      
     <h:body>
-        <h1> Ajouter Annonces :  </h1>
-        <h:form>
-            <p:dataTable id="tbl" 
-            value="#{userCtrl.users}"
-            var="currentUser" 
-            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
-            paginator="true" 
-            rows="10" 
-            style="margin-bottom:20px">   
-                    <f:facet name="{Exporters}">
-            <h:commandLink>
-                <p:graphicImage name="/icons/excel.png" width="24"/>
-                <p:dataExporter type="xls" target="tbl" fileName="users" />
-            </h:commandLink>
- 
-            <h:commandLink>
-                <p:graphicImage name="/icons/pdf.png" width="24"/>
-                <p:dataExporter type="pdf" target="tbl" fileName="users"/>
-            </h:commandLink>
- 
-            <h:commandLink>
-                <p:graphicImage name="/icons/csv.png" width="24"/>
-                <p:dataExporter type="csv" target="tbl" fileName="users" />
-            </h:commandLink>
- 
-            <h:commandLink>
-                <p:graphicImage name="/icons/xml.png" width="24"/>
-                <p:dataExporter type="xml" target="tbl" fileName="users" />
-            </h:commandLink>
-        </f:facet> 
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="ID"/>
-                    </f:facet>
-                    <h:outputText value="#{currentUser.idUser}" />
-                </p:column>
-                
-               <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Email"/>
-                    </f:facet>
-                    <h:outputText value="#{currentUser.email}" />
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="MOT DE PASSE" />
-                    </f:facet>
-                    <h:outputText value="#{currentUser.password}" />
-                </p:column>
-            </p:dataTable>
-    <h3>Exporter uniquement les données</h3>
-    <h:commandLink>
-        <p:graphicImage name="/icons/excel.png" />
-        <p:dataExporter type="xls" target="tbl" fileName="users" pageOnly="true"/>
-    </h:commandLink>
- 
-    <h:commandLink>
-        <p:graphicImage name="/icons/pdf.png" />
-        <p:dataExporter type="pdf" target="tbl" fileName="users" pageOnly="true" />
-    </h:commandLink>
- 
-    <h:commandLink>
-        <p:graphicImage name="/icons/csv.png" />
-        <p:dataExporter type="csv" target="tbl" fileName="users" pageOnly="true" />
-    </h:commandLink>
- 
-    <h:commandLink>
-        <p:graphicImage name="/icons/xml.png" />
-        <p:dataExporter type="xml" target="tbl" fileName="users" pageOnly="true" />
-    </h:commandLink>
-         </h:form>
+        <h1> Ajouter une annonce : </h1>
+        <h:form class="rfra" id="rfra">
+		  <p:panel id="rpanel" header="Ajouter Annonce :">
+		    <p:messages redisplay="false" id="messages" showDetail="true" autoUpdate="true" />
+			    <h:panelGrid id="grid" columns="2" cellpadding="5">
+
+						<h:outputText value="type:" />
+						<p:inputText  value="#{annonceCtrl.annonce.type}" required="true" requiredMessage="type is required"></p:inputText>
+
+						<h:outputText value="description :" />
+						<p:inputText  value="#{annonceCtrl.annonce.description}"></p:inputText>
+
+						<h:outputText value="adresse :" />
+						<p:inputText  value="#{annonceCtrl.annonce.adresse}" ></p:inputText>
+
+						<h:outputText value="code Postal :" />
+						<p:inputText  value="#{annonceCtrl.annonce.codePostal}" required="true" requiredMessage="code postal is required"></p:inputText>
+
+						<h:outputText value="code Region :" />
+						<p:inputText  value="#{annonceCtrl.annonce.codeRegion}" ></p:inputText>
+
+						<h:outputText value="prix :"/>
+						<p:inputText  value="#{annonceCtrl.annonce.prix}" required="true" requiredMessage="prix is required" > </p:inputText>
+						<h:panelGroup>
+										<p:fileUpload fileUploadListener="#{fileUploadController.upload}" 
+										allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000" 
+										description="Select Images"/>
+						
+						
+						</h:panelGroup>
+								
+			    </h:panelGrid>
+			    <p:commandButton value="Ajouter annonce" update="rpanel" validateClient="true" action="#{annonceCtrl.saveAnnonce}" />
+    
+          		<p:commandButton value="Vider formulaire" update="rpanel" process="@this"  style="margin-right:20px;" />
+		  </p:panel>
+		</h:form>
     </h:body>
 </html>

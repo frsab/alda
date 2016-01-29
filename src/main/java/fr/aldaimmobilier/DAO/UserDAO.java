@@ -50,4 +50,23 @@ public class UserDAO implements IntefaceUserDAO{
 	        }
 	        return list;
 	}
+
+	public boolean login(String username, String password) {
+		User u=null;
+        if(username != null && password != null ){
+        	try{
+    			u=(User) entityManager.createNamedQuery("User.findByMail").setParameter("email", username).getSingleResult();//.setParameter(arg0, arg1)//getSingleResult();
+    			if(u.getEmail().equals(username)){
+    				System.out.println("mail"+username+"existe");
+    				if(u.getPassword().equals(password))
+    					return true;
+    			}
+    		}
+    		catch(Exception e){
+            	System.out.println("Exception, message d'erreur : " + e.toString());
+     	        e.printStackTrace();
+    		}
+        }
+		return false;
+	}
 }

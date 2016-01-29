@@ -3,6 +3,7 @@ package fr.aldaimmobilier.controller;
 
 import java.util.Map;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -11,11 +12,17 @@ import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 
 import org.primefaces.context.RequestContext;
+
+import fr.aldaimmobilier.DAO.UserDAO;
+import fr.aldaimmobilier.EntityTable.User;
 @Named(value = "userLoginCtrl")
 				//userLoginCtrl
 @RequestScoped
 //@ManagedBean
 public class UserLoginController {
+	@EJB
+	private UserDAO userDAO;
+	private User user;
      
     private String username;
      
@@ -47,8 +54,8 @@ public class UserLoginController {
 //        System.out.println(context
         FacesMessage message = null;
         boolean loggedIn = false;
-         
-        if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
+        
+         if(userDAO.login(username,password)){
             loggedIn = true;
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
         } else {

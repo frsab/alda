@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
+     
+    
+     
+    <h:head>
+    	<title>Immobilier - JSF 2.0</title>
+    </h:head>
+     
+    <h:body>
+        <h1> Les annonces : </h1> 
+		<h:form id="form">
+		    <p:repeat value="#{annonceDAO.annonces}" var="annonce">
+		        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+		        	<p:graphicImage name="/images/annonce/#{annonce.url}" /> 
+		            <p:outputPanel>
+		                <h:panelGrid columns="2" cellpadding="5">
+						  <h:outputText value="adresse" />
+					                    <h:outputText value="#{annonce.adresse}" style="font-weight: bold"/>
+		
+		
+						  <h:outputText value="codePostal" />
+					                    <h:outputText value="#{annonce.codePostal}" style="font-weight: bold"/>
+		
+		
+						  <h:outputText value="codeRegion" />
+					                    <h:outputText value="#{annonce.codeRegion}" style="font-weight: bold"/>
+		
+		
+						  <h:outputText value="dateDeMiseEnLigne" />
+					                    <h:outputText value="#{annonce.dateDeMiseEnLigne}" style="font-weight: bold"/>
+		
+		
+						  <h:outputText value="description" />
+					                    <h:outputText value="#{annonce.description}" style="font-weight: bold"/>
+		
+		
+						  <h:outputText value="prix" />
+					                    <h:outputText value="#{annonce.prix}" style="font-weight: bold"/>
+		
+		
+						  <h:outputText value="type" />
+					                    <h:outputText value="#{annonce.type}" style="font-weight: bold"/>
+		                </h:panelGrid>
+		            </p:outputPanel>
+		        </h:panelGrid>
+		        <hr />
+		    </p:repeat>
+		</h:form>
+    </h:body>
+</html>
