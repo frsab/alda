@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
+     
+    
+     
+    <h:head>
+    	<title>Immobilier - JSF 2.0</title>
+    </h:head>
+     
+    <h:body>
+        <h1> Inscription : </h1>
+        <h:form class="rfrm" id="rfrm">
+		  <p:panel id="rpanel" header="Inscription !!!">
+		    <p:messages redisplay="false" id="messages" showDetail="true" autoUpdate="true" />
+		    <h:panelGrid id="grid" columns="2" cellpadding="5">
+		      <h:outputText value="Email:* " />
+		      <p:inputText styleClass="email" value="#{userCtrl.user.email}" required="true" requiredMessage="Email is required">
+		      </p:inputText>
+		      <h:outputText value="Password:* " />
+		      <p:password styleClass="pwd1" id="pwd1" value="#{userCtrl.user.password}" match="pwd2" label="Password 1" required="true" requiredMessage="Password is required" />
+		      <h:outputText value="Password:* " />
+		      <p:password styleClass="pwd2" id="pwd2" value="#{userCtrl.user.password}" label="Password" required="true" requiredMessage="Password is required" />
+		    </h:panelGrid>
+			    <p:commandButton value="Sign Up" update="rpanel" validateClient="true" action="#{userCtrl.saveUser}" />
+          		<p:commandButton value="Vider formulaire" update="rpanel" process="@this"  style="margin-right:20px;" />
+		  </p:panel>
+		</h:form>
+    </h:body>
+</html>

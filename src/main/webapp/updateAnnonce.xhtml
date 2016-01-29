@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
+     
+    
+     
+    <h:head>
+        <title>Immobilier - JSF 2.0</title>
+    </h:head>
+     
+    <h:body>
+        <h1> Ajouter Annonces :  </h1>
+        <h:form>
+            <p:dataTable id="tbl" 
+            value="#{userCtrl.users}"
+            var="currentUser" 
+            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+            paginator="true" 
+            rows="10" 
+            style="margin-bottom:20px">   
+                    <f:facet name="{Exporters}">
+            <h:commandLink>
+                <p:graphicImage name="/icons/excel.png" width="24"/>
+                <p:dataExporter type="xls" target="tbl" fileName="users" />
+            </h:commandLink>
+ 
+            <h:commandLink>
+                <p:graphicImage name="/icons/pdf.png" width="24"/>
+                <p:dataExporter type="pdf" target="tbl" fileName="users"/>
+            </h:commandLink>
+ 
+            <h:commandLink>
+                <p:graphicImage name="/icons/csv.png" width="24"/>
+                <p:dataExporter type="csv" target="tbl" fileName="users" />
+            </h:commandLink>
+ 
+            <h:commandLink>
+                <p:graphicImage name="/icons/xml.png" width="24"/>
+                <p:dataExporter type="xml" target="tbl" fileName="users" />
+            </h:commandLink>
+        </f:facet> 
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID"/>
+                    </f:facet>
+                    <h:outputText value="#{currentUser.idUser}" />
+                </p:column>
+                
+               <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Email"/>
+                    </f:facet>
+                    <h:outputText value="#{currentUser.email}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="MOT DE PASSE" />
+                    </f:facet>
+                    <h:outputText value="#{currentUser.password}" />
+                </p:column>
+            </p:dataTable>
+    <h3>Exporter uniquement les données</h3>
+    <h:commandLink>
+        <p:graphicImage name="/icons/excel.png" />
+        <p:dataExporter type="xls" target="tbl" fileName="users" pageOnly="true"/>
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/icons/pdf.png" />
+        <p:dataExporter type="pdf" target="tbl" fileName="users" pageOnly="true" />
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/icons/csv.png" />
+        <p:dataExporter type="csv" target="tbl" fileName="users" pageOnly="true" />
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/icons/xml.png" />
+        <p:dataExporter type="xml" target="tbl" fileName="users" pageOnly="true" />
+    </h:commandLink>
+         </h:form>
+    </h:body>
+</html>

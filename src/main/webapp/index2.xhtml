@@ -1,57 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	>
-	
-
-<h:head>
-	<title>Immobilier - JSF 2.0</title>
-</h:head>
-<h:body>
-	<h1> Bienvenue das notre site des commerce d'immobiliers </h1>
-	<h3>Connexion : </h3>
-	<h:form>
-			<h:panelGrid columns="2" >
-				 <h:outputLabel value="id user  : "/>
-					<h:inputText value="#{userController.user.idUser}"/>
-				 <h:outputLabel value="mail user  : "/>
-					<h:inputText value="#{userController.user.email}" />
-				<h:outputLabel value="pasword user  : "/>
-					<h:inputSecret id="id3" value="#{userController.user.password}" />
-				 <h:outputLabel value="N° téléphone user  : "/>
-					<h:inputText  value="#{userController.user.telephoneNb}"/>
-				 <h:outputLabel value="Type user  : "/>
-					<h:inputText value="#{userController.user.typeUser}"/>
-				 <h:outputLabel value="adresse user  : "/>
-					<h:inputText value="#{userController.user.adresseUser}"/>
-				 <h:outputLabel value="codepostal user  : "/>
-					<h:inputText value="#{userController.user.codePostalUser}"/>
-			</h:panelGrid>
-
-			<h:commandButton value="Add New User"  action="#{userController.addNewUser}"/>            
-	</h:form>
-	
-</h:body>
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
+     
+    
+     
+    <h:head>
+    	<title>Immobilier - JSF 2.0</title>
+    </h:head>
+     
+    <h:body>
+        <h1> Bienvenue dans notre site des commerce d'immobiliers </h1>
+        <h:form class="rfrm" id="rfrm">
+		  <p:panel id="rpanel" header="Inscription !!!">
+		    <p:messages redisplay="false" id="messages" showDetail="true" autoUpdate="true" />
+		    <h:panelGrid id="grid" columns="2" cellpadding="5">
+		      <h:outputText value="Email:* " />
+		      <p:inputText styleClass="email" value="#{userCtrl.user.email}" required="true" requiredMessage="Email is required">
+		      </p:inputText>
+		      <h:outputText value="Password:* " />
+		      <p:password styleClass="pwd1" id="pwd1" value="#{userCtrl.user.password}" match="pwd2" label="Password 1" required="true" requiredMessage="Password is required" />
+		      <h:outputText value="Password:* " />
+		      <p:password styleClass="pwd2" id="pwd2" value="#{userCtrl.user.password}" label="Password" required="true" requiredMessage="Password is required" />
+		    </h:panelGrid>
+			    <p:commandButton value="Sign Up" update="rpanel" validateClient="true" action="#{userCtrl.saveUser}" />
+          		<p:commandButton value="Vider formulaire" update="rpanel" process="@this"  style="margin-right:20px;" />
+		  </p:panel>
+		</h:form>
+		  <h:form>            
+		    <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+		        <p:graphicImage name="/demo/images/login.png" />
+		    </h:outputLink>
+		 
+		    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+		 
+		    <p:dialog header="Login" widgetVar="dlg" resizable="false">
+		        <h:panelGrid columns="2" cellpadding="5">
+		            <h:outputLabel for="username" value="Username:" />
+		            <p:inputText id="username" value="#{userLoginCtrl.username}" required="true" label="username" />
+		 
+		            <h:outputLabel for="password" value="Password:" />
+		            <p:password id="password" value="#{userLoginCtrl.password}" required="true" label="password" />
+		 
+		            <f:facet name="footer">
+		                <p:commandButton value="Login" update="growl" actionListener="#{userLoginCtrl.login}"
+		                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+		            </f:facet>  
+		        </h:panelGrid>
+		    </p:dialog>
+		</h:form>
+		
+		<h:form enctype="multipart/form-data">
+    <p:growl id="messages" showDetail="true" />
+ 
+    <p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
+ 
+    <p:commandButton value="Submit" ajax="false" actionListener="#{fileUploadView.upload}" disabled="true" />
+</h:form>
+     <h:form id="form" >
+ 
+        <p:fileUpload fileUploadListener="#{fileUploadController.upload}"
+allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="100000" description="Select Images"/>
+ 
+    </h:form> 
+<script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('#loginLink').fadeOut();
+        }
+    }
+</script>
+		
+    </h:body>
 </html>
-
-
-		 	<!-- 
-		 <div>
-		 	<div>
-				<h:outputText value="login:"/>
-	           <h:inputText value="#{loginBean.username}" id="username"/>
-		 	</div>
-		 	
-		 	<div>
-	           <h:outputText value="mot de passe :"/>
-	           <h:inputSecret value="#{loginBean.password}" id="password"/>
-		 	</div>
-		 	<div>
-		 	
-	           <h:commandButton id="register" value="register" action="view/admin/messageCenter"></h:commandButton>
-			</div>
-		 </div>
-		 	 -->
